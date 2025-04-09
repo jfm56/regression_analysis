@@ -27,12 +27,18 @@ Required dependencies:
 - matplotlib==3.7.1
 - seaborn==0.12.2
 
+Development dependencies:
+- pytest==7.4.0
+- pylint==2.17.5
+- pytest-cov==4.1.0
+- black==23.7.0
+
 ## Usage
 
 1. Place your data file (Excel format) in the project directory
 2. Run the analysis:
 ```bash
-python regression.py
+python -m regression_analysis.regression
 ```
 
 The script will generate three visualization files:
@@ -101,13 +107,19 @@ pytest
 
 3. Check code quality:
 ```bash
-pylint regression.py
+pylint regression_analysis/regression.py tests/*.py
 ```
 
 4. Check test coverage:
 ```bash
-pytest --cov=regression_analysis
+pytest --cov=regression_analysis --cov-report=html
 ```
+
+The test suite includes:
+- Model accuracy testing with realistic data
+- Feature importance validation
+- Error handling tests
+- 90% code coverage
 
 ### Docker Development
 
