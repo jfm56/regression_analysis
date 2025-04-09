@@ -8,6 +8,14 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 def create_enhanced_visualizations(df, feature_columns, target_column, model_coef):
+    """Create enhanced visualizations for the regression analysis
+    
+    Args:
+        df (pd.DataFrame): Input DataFrame
+        feature_columns (list): List of feature column names
+        target_column (str): Name of target column
+        model_coef (np.ndarray): Model coefficients
+    """
     # Create a copy of the dataframe to avoid modifying the original
     plot_df = df.copy()
     
@@ -30,13 +38,11 @@ def create_enhanced_visualizations(df, feature_columns, target_column, model_coe
     plt.close()
     
     # 2. Enhanced Scatter Plots with Trend Lines
-    numerical_features = [
-        'Pregnancy Test', 'Birth Control', 'Folic Acid',
-        'Prenatal Vitamins', 'Cigarettes', 'Wine'
-    ]
+    # Use up to 6 features from the available feature columns
+    plot_features = feature_columns[:6]
     
     plt.figure(figsize=(15, 10))
-    for i, feature in enumerate(numerical_features, 1):
+    for i, feature in enumerate(plot_features, 1):
         plt.subplot(2, 3, i)
         sns.regplot(data=plot_df, x=feature, y=target_column, 
                    scatter_kws={'alpha':0.5}, 

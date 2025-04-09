@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 import pytest
-from regression import perform_regression
+from regression_analysis.regression import perform_regression
 
 @pytest.fixture
 def sample_data():
@@ -10,13 +10,14 @@ def sample_data():
     np.random.seed(42)
     n_samples = 100
     
-    # Create sample features
+    # Create correlated sample features
+    pregnant = np.random.randint(0, 2, n_samples)
     data = {
-        'Folic Acid': np.random.randint(0, 2, n_samples),
-        'Birth Control': np.random.randint(0, 2, n_samples),
-        'Prenatal Vitamins': np.random.randint(0, 2, n_samples),
-        'Wine': np.random.randint(0, 2, n_samples),
-        'PREGNANT': np.random.randint(0, 2, n_samples)
+        'Folic Acid': np.where(pregnant == 1, np.random.choice([0, 1], n_samples, p=[0.2, 0.8]), np.random.choice([0, 1], n_samples, p=[0.8, 0.2])),
+        'Birth Control': np.where(pregnant == 1, np.random.choice([0, 1], n_samples, p=[0.8, 0.2]), np.random.choice([0, 1], n_samples, p=[0.4, 0.6])),
+        'Prenatal Vitamins': np.where(pregnant == 1, np.random.choice([0, 1], n_samples, p=[0.1, 0.9]), np.random.choice([0, 1], n_samples, p=[0.9, 0.1])),
+        'Wine': np.where(pregnant == 1, np.random.choice([0, 1], n_samples, p=[0.9, 0.1]), np.random.choice([0, 1], n_samples, p=[0.3, 0.7])),
+        'PREGNANT': pregnant
     }
     return pd.DataFrame(data)
 
