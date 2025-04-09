@@ -139,3 +139,8 @@ The Docker image is automatically built and published to Docker Hub on every pus
 - Docker support for consistent development environment
 - Code quality maintained with pylint
 - Test coverage tracked with pytest-cov
+- Automated dependency updates with Dependabot
+  - Weekly checks for Python packages
+  - Weekly checks for GitHub Actions
+  - Weekly checks for Docker base images
+  - Auto-merges patch updates
