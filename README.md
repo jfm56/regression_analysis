@@ -1,5 +1,9 @@
 # Pregnancy Prediction Analysis
 
+[![Production CI/CD](https://github.com/jfm56/regression_analysis/actions/workflows/production.yml/badge.svg)](https://github.com/jfm56/regression_analysis/actions/workflows/production.yml)
+[![codecov](https://codecov.io/gh/jfm56/regression_analysis/branch/main/graph/badge.svg)](https://codecov.io/gh/jfm56/regression_analysis)
+
+
 This project analyzes purchasing behavior patterns to predict pregnancy status using logistic regression. The model achieves 84.5% accuracy in predicting pregnancy based on various shopping behaviors and lifestyle changes.
 
 ## Installation
@@ -106,6 +110,14 @@ pytest --cov=regression_analysis
 ```
 
 ### Docker Development
+
+#### Using Pre-built Image
+```bash
+docker pull jmullen029/regression_analysis:latest
+docker run jmullen029/regression_analysis:latest
+```
+
+#### Local Development with Docker
 1. Build and run using Docker:
 ```bash
 docker-compose up --build
@@ -115,6 +127,8 @@ docker-compose up --build
 ```bash
 docker-compose run regression pytest
 ```
+
+The Docker image is automatically built and published to Docker Hub on every push to main branch.
 
 ## Notes
 - The model uses logistic regression for binary classification (Pregnant/Not Pregnant)
