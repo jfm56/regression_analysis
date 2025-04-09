@@ -70,6 +70,16 @@ def create_enhanced_visualizations(df, feature_columns, target_column, model_coe
     print("3. feature_importance.png - Bar plot of feature importance")
 
 def perform_regression(excel_path, target_column, feature_columns=None):
+    """Perform regression analysis on the given dataset
+    
+    Args:
+        excel_path (str): Path to the Excel file containing the data
+        target_column (str): Name of the target column
+        feature_columns (list, optional): List of feature columns to use
+        
+    Returns:
+        dict: Dictionary containing model results and metrics
+    """
     # Read the Excel file
     df = pd.read_excel(excel_path)
     
@@ -116,6 +126,14 @@ def perform_regression(excel_path, target_column, feature_columns=None):
     
     # Create enhanced visualizations
     create_enhanced_visualizations(df, feature_columns, target_column, model.coef_)
+    
+    # Return results for testing
+    return {
+        'accuracy': accuracy,
+        'feature_importance': dict(zip(feature_columns, model.coef_[0])),
+        'predictions': y_pred.tolist(),
+        'true_values': y_test.tolist()
+    }
 
 if __name__ == "__main__":
     # File path and target column

@@ -1,0 +1,25 @@
+[MASTER]
+disable=
+    C0111, # missing-docstring
+    C0103, # invalid-name
+    R0913, # too-many-arguments
+    R0914, # too-many-locals
+
+[FORMAT]
+max-line-length=100
+
+[MESSAGES CONTROL]
+disable=W0611,C0111,C0103
+
+[REPORTS]
+output-format=text
+reports=no
+
+[BASIC]
+good-names=df,X,y,i,j,k,ex,Run,_
+
+[SIMILARITIES]
+min-similarity-lines=4
+ignore-comments=yes
+ignore-docstrings=yes
+ignore-imports=yes

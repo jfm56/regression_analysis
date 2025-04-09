@@ -82,8 +82,46 @@ The model identifies purchasing patterns that are most predictive of pregnancy:
 - Contraceptives and lifestyle products (Birth Control, Wine, Cigarettes) are strong negative indicators
 - Changes in purchasing behavior (stopping wine/cigarettes) are moderately strong indicators
 
+## Development Setup
+
+### Local Development
+1. Install development dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+2. Run tests:
+```bash
+pytest
+```
+
+3. Check code quality:
+```bash
+pylint regression.py
+```
+
+4. Check test coverage:
+```bash
+pytest --cov=regression_analysis
+```
+
+### Docker Development
+1. Build and run using Docker:
+```bash
+docker-compose up --build
+```
+
+2. Run tests in Docker:
+```bash
+docker-compose run regression pytest
+```
+
 ## Notes
 - The model uses logistic regression for binary classification (Pregnant/Not Pregnant)
 - Features are encoded using Label Encoding for categorical variables
 - The dataset is split 80/20 for training and testing
 - Results include both positive and negative predictors for comprehensive analysis
+- Includes comprehensive test suite with pytest
+- Docker support for consistent development environment
+- Code quality maintained with pylint
+- Test coverage tracked with pytest-cov
