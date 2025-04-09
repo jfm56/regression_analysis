@@ -35,6 +35,30 @@ Development dependencies:
 
 ## Usage
 
+### Data Format
+The analysis expects an Excel file (`target.xlsx`) with the following columns:
+- Implied Gender
+- Home/Apt/PO Box
+- Pregnancy Test
+- Birth Control
+- Feminine Hygiene
+- Folic Acid
+- Prenatal Vitamins
+- Prenatal Yoga
+- Body Pillow
+- Ginger Ale
+- Sea Bands
+- Stopped buying ciggies
+- Cigarettes
+- Smoking Cessation
+- Stopped buying wine
+- Wine
+- Maternity Clothes
+- Pregnant (target variable, 0 or 1)
+
+An example file `target.xlsx` is included in the repository.
+
+### Running the Analysis
 1. Place your data file (Excel format) in the project directory
 2. Run the analysis:
 ```bash
