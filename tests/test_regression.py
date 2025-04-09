@@ -35,6 +35,7 @@ def sample_data():
     }
     return pd.DataFrame(data)
 
+# pylint: disable=redefined-outer-name
 def test_model_accuracy(sample_data, tmp_path):
     """Test if model achieves reasonable accuracy with realistic data"""
     # Save sample data to temp Excel file
@@ -47,7 +48,7 @@ def test_model_accuracy(sample_data, tmp_path):
     # Check if accuracy is above random chance (0.5)
     assert result['accuracy'] > 0.5
 
-def test_feature_importance(sample_data, tmp_path):
+def test_feature_importance(sample_data, tmp_path):  # pylint: disable=redefined-outer-name
     """Test if feature importance values are reasonable"""
     excel_path = tmp_path / "test_data.xlsx"
     sample_data.to_excel(excel_path, index=False)

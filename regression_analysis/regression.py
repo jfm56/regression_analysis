@@ -21,7 +21,10 @@ def create_enhanced_visualizations(df_input, features, target, coef):
     plot_df = df_input.copy()
 
     # Encode categorical variables for correlation
-    categorical_columns = [col for col in features if isinstance(plot_df[col].dtype, CategoricalDtype) or plot_df[col].dtype == 'object']
+    categorical_columns = [
+        col for col in features
+        if isinstance(plot_df[col].dtype, CategoricalDtype) or plot_df[col].dtype == 'object'
+    ]
     for col in categorical_columns:
         le = LabelEncoder()
         plot_df[col] = le.fit_transform(plot_df[col].astype(str))
@@ -96,7 +99,10 @@ def perform_regression(data_path, target_var, features=None):
 
     # Handle categorical variables
     X = df[features].copy()
-    categorical_columns = [col for col in X.columns if isinstance(X[col].dtype, CategoricalDtype) or X[col].dtype == 'object']
+    categorical_columns = [
+        col for col in X.columns
+        if isinstance(X[col].dtype, CategoricalDtype) or X[col].dtype == 'object'
+    ]
 
     # Apply label encoding to categorical columns
     label_encoders = {}
