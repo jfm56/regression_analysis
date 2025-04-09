@@ -28,7 +28,7 @@ jobs:
     
     - name: Run pylint
       run: |
-        pylint regression.py tests/*.py
+        pylint regression_analysis/regression.py tests/*.py
     
     - name: Run tests with pytest and coverage
       run: |
