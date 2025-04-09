@@ -18,4 +18,7 @@ RUN useradd -m appuser && chown -R appuser:appuser /app
 USER appuser
 
 # Command to run the application
-CMD ["python", "regression.py"]
+# Install package in development mode
+RUN pip install -e .
+
+CMD ["python", "-m", "regression_analysis.regression"]
